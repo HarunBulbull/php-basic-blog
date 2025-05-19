@@ -1,5 +1,12 @@
 <?php
-require_once '../config.php';
+require_once '../config/config.php';
+
+$checkTable = $conn->query("SHOW TABLES LIKE 'blogs'");
+if ($checkTable->num_rows != 0) {
+    header("Location: ../");
+    exit();
+}
+
 
 $createSettingsTable = "CREATE TABLE IF NOT EXISTS settings (
     setting_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,6 +27,33 @@ $createUsersTable = "CREATE TABLE IF NOT EXISTS users (
     user_role ENUM('admin', 'user') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
+
+$createBlogTable = "CREATE TABLE IF NOT EXISTS blogs (
+    blog_id INT AUTO_INCREMENT PRIMARY KEY,
+    blog_title VARCHAR(255) NOT NULL,
+    blog_slug VARCHAR(255) NOT NULL UNIQUE,
+    blog_content LONGTEXT NOT NULL,
+    blog_image VARCHAR(255) NOT NULL,
+    blog_category_id INT,
+    blog_meta_title VARCHAR(255),
+    blog_meta_description TEXT,
+    blog_meta_keywords TEXT,
+    blog_status ENUM('published', 'draft') DEFAULT 'draft',
+    blog_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    blog_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (blog_category_id) REFERENCES categories(category_id) ON DELETE SET NULL
+)";
+
+$createCategoryTable = "CREATE TABLE IF NOT EXISTS categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(255) NOT NULL,
+    category_slug VARCHAR(255) NOT NULL UNIQUE,
+    category_meta_title VARCHAR(255),
+    category_meta_description TEXT,
+    category_meta_keywords TEXT,
+    category_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    category_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -54,8 +88,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                    VALUES ('$user_fullName', '$user_email', '$user_password', 'admin')";
                     
                     if ($conn->query($insertAdmin) === TRUE) {
-                        header("Location: index.php");
-                        exit();
+                        if ($conn->query($createCategoryTable) === TRUE) {
+                            $insertCategory = "INSERT INTO categories (category_name, category_slug, category_meta_title, category_meta_description, category_meta_keywords) 
+                                              VALUES ('Genel', 'genel', 'Genel', 'Genel', 'Genel')";
+                            if ($conn->query($insertCategory) === TRUE) {
+                                if ($conn->query($createBlogTable) === TRUE) {
+                                    header("Location: ../");
+                                    exit();
+                                } else {
+                                    $error = "Blog tablosu oluşturulurken hata oluştu: " . $conn->error;
+                                }
+                            } else {
+                                $error = "Genel kategori oluşturulurken hata oluştu: " . $conn->error;
+                            }
+                        } else {
+                            $error = "Kategori tablosu oluşturulurken hata oluştu: " . $conn->error;    
+                        }
                     } else {
                         $error = "Admin kullanıcısı eklenirken hata oluştu: " . $conn->error;
                     }
@@ -191,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (currentUpload.status === 200) {
                     const response = JSON.parse(currentUpload.responseText);
                     if (response.success) {
-                        document.getElementById('logo_preview').src = response.data.file_path;
+                        document.getElementById('logo_preview').src = '../' + response.data.file_path;
                         document.getElementById('logo_preview').style.display = 'block';
                         document.getElementById('site_logo_path').value = response.data.file_path;
                         document.getElementById('remove_logo').style.display = 'block';

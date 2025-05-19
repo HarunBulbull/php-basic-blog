@@ -3,19 +3,6 @@ include '../config/session.php';
 include '../config/settings.php'; 
 $title = "Kategori Ekle";
 
-$createCategoryTable = "CREATE TABLE IF NOT EXISTS categories (
-    category_id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(255) NOT NULL,
-    category_slug VARCHAR(255) NOT NULL UNIQUE,
-    category_meta_title VARCHAR(255),
-    category_meta_description TEXT,
-    category_meta_keywords TEXT,
-    category_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    category_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
-
-$conn->query($createCategoryTable);
-
 function turkishToEnglish($str) {
     $turkish = array('ı', 'ğ', 'ü', 'ş', 'ö', 'ç', 'İ', 'Ğ', 'Ü', 'Ş', 'Ö', 'Ç');
     $english = array('i', 'g', 'u', 's', 'o', 'c', 'i', 'g', 'u', 's', 'o', 'c');

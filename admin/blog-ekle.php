@@ -3,23 +3,6 @@ include '../config/session.php';
 include '../config/settings.php'; 
 $title = "Blog Ekle";
 
-$createBlogTable = "CREATE TABLE IF NOT EXISTS blogs (
-    blog_id INT AUTO_INCREMENT PRIMARY KEY,
-    blog_title VARCHAR(255) NOT NULL,
-    blog_slug VARCHAR(255) NOT NULL UNIQUE,
-    blog_content LONGTEXT NOT NULL,
-    blog_image VARCHAR(255) NOT NULL,
-    blog_category_id INT,
-    blog_meta_title VARCHAR(255),
-    blog_meta_description TEXT,
-    blog_meta_keywords TEXT,
-    blog_status ENUM('published', 'draft') DEFAULT 'draft',
-    blog_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    blog_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (blog_category_id) REFERENCES categories(category_id) ON DELETE SET NULL
-)";
-
-$conn->query($createBlogTable);
 
 $getCategories = "SELECT * FROM categories ORDER BY category_name ASC";
 $categories = $conn->query($getCategories);

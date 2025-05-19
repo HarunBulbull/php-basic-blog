@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-$checkTable = $conn->query("SHOW TABLES LIKE 'settings'");
+$checkTable = $conn->query("SHOW TABLES LIKE 'blogs'");
 if ($checkTable->num_rows == 0) {
     header("Location: /setup");
     exit();
