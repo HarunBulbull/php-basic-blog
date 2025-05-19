@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root{
+    --broken-white: #f7fafc;
+    --primary: rgba(239, 192, 4, 1);
+    --primary-9: rgba(239, 192, 4, .9);
+    --primary-8: rgba(239, 192, 4, .8);
+    --primary-7: rgba(239, 192, 4, .7);
+    --primary-6: rgba(239, 192, 4, .6);
+    --primary-5: rgba(239, 192, 4, .5);
+    --primary-4: rgba(239, 192, 4, .4);
+    --primary-3: rgba(239, 192, 4, .3);
+    --primary-2: rgba(239, 192, 4, .2);
+    --primary-1: rgba(239, 192, 4, .1);
+    --secondary: rgba(26, 26, 26, 1);
+    --secondary-9: rgba(26, 26, 26, .9);
+    --secondary-8: rgba(26, 26, 26, .8);
+    --secondary-7: rgba(26, 26, 26, .7);
+    --secondary-6: rgba(26, 26, 26, .6);
+    --secondary-5: rgba(26, 26, 26, .5);
+    --secondary-4: rgba(26, 26, 26, .4);
+    --secondary-3: rgba(26, 26, 26, .3);
+    --secondary-2: rgba(26, 26, 26, .2);
+    --secondary-1: rgba(26, 26, 26, .1);
+}
+
+.container{
+    width: 80%;
+    max-width: 1400px;
+}
+
+.clamp-h1{font-size: clamp(1.75rem, 1.0536rem + 2.4762vw, 3.375rem);}
+.clamp-h2{font-size: clamp(1.5625rem, 0.9464rem + 2.1905vw, 3rem);}
+.clamp-h3{font-size: clamp(1.375rem, 0.8929rem + 1.7143vw, 2.5rem);}
+.clamp-h4{font-size: clamp(1.1875rem, 0.7857rem + 1.4286vw, 2.125rem);}
+.clamp-h5{font-size: clamp(1rem, 0.7321rem + 0.9524vw, 1.625rem);}
+.clamp-p{font-size: clamp(0.8125rem, 0.6786rem + 0.4762vw, 1.125rem);}
+
+body{
+    background-color: black;
+    color: white;
+}
