@@ -51,14 +51,6 @@ A modern, responsive blog system built with PHP and MySQL, featuring a clean and
 - Web server (Apache/Nginx)
 - mod_rewrite enabled (for Apache)
 
-## Configuration
-
-Edit the `config/config.php` file to configure:
-- Database connection
-- Site settings
-- SEO meta tags
-- Other global variables
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
