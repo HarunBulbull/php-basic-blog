@@ -1,5 +1,5 @@
 <div align="center">
-# PHP BASIC BLOG
+<h1>PHP BASIC BLOG</h1>
 
 <em>A modern, responsive blog system built with PHP and MySQL, featuring a clean and user-friendly interface.</em>
 
