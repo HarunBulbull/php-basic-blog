@@ -1,14 +1,14 @@
 <div align="center">
-# PHP-BASIC-BLOG
+#PHP-BASIC-BLOG
 
-<em>Empower Your Voice, Share Your Story Effortlessly</em>
+<em>A modern, responsive blog system built with PHP and MySQL, featuring a clean and user-friendly interface.</em>
 
 <img src="https://img.shields.io/github/last-commit/HarunBulbull/php-basic-blog?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
 <img src="https://img.shields.io/github/languages/top/HarunBulbull/php-basic-blog?style=flat&color=0080ff" alt="repo-top-language">
 <img src="https://img.shields.io/github/languages/count/HarunBulbull/php-basic-blog?style=flat&color=0080ff" alt="repo-language-count">
 </div>
 
-A modern, responsive blog system built with PHP and MySQL, featuring a clean and user-friendly interface.
+
 
 ## Features
 
