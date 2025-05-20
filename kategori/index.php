@@ -55,7 +55,7 @@ $posts = $stmt->get_result();
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo $site_url; ?>/kategori/<?php echo $category['category_slug']; ?>">
     <link rel="canonical" href="<?php echo $site_url; ?>/kategori/<?php echo $category['category_slug']; ?>">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
     <title><?php echo $category['category_meta_title'] ?? $category['category_name']; ?> - <?php echo $site_title; ?></title>
 </head>
 <body>
@@ -89,7 +89,7 @@ $posts = $stmt->get_result();
                             ?>
                             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                                 <div class="relative">
-                                    <img src="<?php echo $post['blog_image']; ?>" 
+                                    <img src="../<?php echo $post['blog_image']; ?>" 
                                          alt="<?php echo $post['blog_title']; ?>" 
                                          class="w-full h-48 object-cover">
                                 </div>

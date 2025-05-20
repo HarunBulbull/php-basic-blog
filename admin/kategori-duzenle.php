@@ -103,7 +103,7 @@ if (isset($_SESSION['success'])) {
                         </button>
                     </div>
                     <p class="mt-2 text-gray-400 italic text-sm">
-                        <?php echo $site_url; ?>/kategori/<span id="slug-preview"><?php echo $category['category_slug']; ?></span>
+                        <?php echo $site_url; ?>/kategori?slug=<span id="slug-preview"><?php echo $category['category_slug']; ?></span>
                     </p>
                 </div>
 

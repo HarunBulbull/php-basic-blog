@@ -24,9 +24,17 @@ $blog = $blogResult->fetch_assoc();
 $date = new DateTime($blog['blog_created_at']);
 $formatted_date = $date->format('d.m.Y');
 
-$title = $blog['blog_meta_title'] ?? $blog['blog_title'] . " - " . $site_title;
-$description = $blog['blog_meta_description'] ?? substr(strip_tags($blog['blog_content']), 0, 160);
-$keywords = $blog['blog_meta_keywords'] ?? $site_keywords;
+if (!empty($blog['blog_meta_title'])) {
+    $title = $blog['blog_meta_title'];
+} else {
+    $title = $blog['blog_title'] . " - " . $site_title;
+}
+
+$description = !empty($blog['blog_meta_description']) ? $blog['blog_meta_description'] : substr(strip_tags($blog['blog_content']), 0, 160);
+$keywords = !empty($blog['blog_meta_keywords']) ? $blog['blog_meta_keywords'] : $site_keywords;
+
+$image_url = $site_url . '/' . $blog['blog_image'];
+$page_url = $site_url . '/blog.php?slug=' . $slug;
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +48,22 @@ $keywords = $blog['blog_meta_keywords'] ?? $site_keywords;
     <meta name="keywords" content="<?php echo $keywords; ?>">
     <link rel="canonical" href="<?php echo $site_url; ?>/blog.php?slug=<?php echo $slug; ?>">
     <link rel="icon" href="<?php echo $site_logo; ?>">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<?php echo $page_url; ?>">
+    <meta property="og:title" content="<?php echo $title; ?>">
+    <meta property="og:description" content="<?php echo $description; ?>">
+    <meta property="og:image" content="<?php echo $image_url; ?>">
+    <meta property="og:site_name" content="<?php echo $site_title; ?>">
+    <meta property="article:published_time" content="<?php echo $blog['blog_created_at']; ?>">
+    <meta property="article:section" content="<?php echo $blog['category_name']; ?>">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?php echo $page_url; ?>">
+    <meta name="twitter:title" content="<?php echo $title; ?>">
+    <meta name="twitter:description" content="<?php echo $description; ?>">
+    <meta name="twitter:image" content="<?php echo $image_url; ?>">
+
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="../main.css">
 </head>

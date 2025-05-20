@@ -152,7 +152,7 @@ if (isset($_SESSION['success'])) {
                         </button>
                     </div>
                     <p class="mt-2 text-gray-400 italic text-sm">
-                        <?php echo $site_url; ?>/blog/<span id="slug-preview"><?php echo $blog['blog_slug']; ?></span>
+                        <?php echo $site_url; ?>/blog?slug=<span id="slug-preview"><?php echo $blog['blog_slug']; ?></span>
                     </p>
                 </div>
 

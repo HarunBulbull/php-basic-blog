@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin_role'] = $user['user_role'];
             $_SESSION['last_activity'] = time();
 
-            header("Location: blog-ekle.php");
+            header("Location: index.php");
             exit();
         } else {
             $error = 'E-posta veya şifre hatalı!';

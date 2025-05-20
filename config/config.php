@@ -1,8 +1,8 @@
 <?php
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'Editmp41*');
-define('DB_NAME', 'blogApp');
+define('DB_PASS', 'root');
+define('DB_NAME', 'blog');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS);
 
