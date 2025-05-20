@@ -90,7 +90,7 @@ $stats = [
         <div class="bg-gray-800 rounded-lg p-6 mb-8">
         <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-bold text-white">Son Yazılar</h2>
-                <a href="admin/blog-ekle.php" class="bg-(--primary) text-white px-4 py-2 rounded-lg hover:bg-(--primary-hover) transition-colors">
+                <a href="blog-ekle.php" class="bg-(--primary) text-white px-4 py-2 rounded-lg hover:bg-(--primary-hover) transition-colors">
                     <i class="fas fa-plus mr-2"></i>Yeni Yazı
                 </a>
             </div>
@@ -127,7 +127,7 @@ $stats = [
         <div class="bg-gray-800 rounded-lg p-6">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-bold text-white">Son Kategoriler</h2>
-                <a href="admin/kategori-ekle.php" class="bg-(--primary) text-white px-4 py-2 rounded-lg hover:bg-(--primary-hover) transition-colors">
+                <a href="kategori-ekle.php" class="bg-(--primary) text-white px-4 py-2 rounded-lg hover:bg-(--primary-hover) transition-colors">
                     <i class="fas fa-plus mr-2"></i>Yeni Kategori
                 </a>
             </div>
